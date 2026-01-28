@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">TicTacToe</string>
+
+    <string name="home_welcome_title">Welcome</string>
+    <string name="home_welcome_sub_title">On the TicTacToe Game !</string>
+    <string name="home_first_player_name_placeholder">First player name</string>
+    <string name="home_second_player_name_placeholder">Second player name</string>
+    <string name="home_start_game_button">Start !</string>
+
+    <string name="error_empty_name">You must provide a name</string>
 </resources>
