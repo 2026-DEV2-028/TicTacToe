@@ -7,5 +7,7 @@
     <string name="home_second_player_name_placeholder">Second player name</string>
     <string name="home_start_game_button">Start !</string>
 
+    <string name="game_your_turn">%s, it\'s your turn to play</string>
+
     <string name="error_empty_name">You must provide a name</string>
 </resources>

@@ -101,6 +101,7 @@ fun HomeScreenContent(
                 placeholder = {
                     Text(text = stringResource(R.string.home_first_player_name_placeholder))
                 },
+                singleLine = true,
                 isError = uiState.firstPlayerError != null,
                 supportingText = {
                     Text(text = uiState.firstPlayerError?.asString() ?: "")
@@ -118,6 +119,7 @@ fun HomeScreenContent(
                 placeholder = {
                     Text(text = stringResource(R.string.home_second_player_name_placeholder))
                 },
+                singleLine = true,
                 isError = uiState.secondPlayerError != null,
                 supportingText = {
                     Text(text = uiState.secondPlayerError?.asString() ?: "")

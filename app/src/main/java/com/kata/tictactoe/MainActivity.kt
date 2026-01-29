@@ -3,7 +3,7 @@ package com.kata.tictactoe
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     fun App() {
         val backStack = remember { mutableStateListOf<Any>(Home) }
         NavDisplay(
-            modifier = Modifier.navigationBarsPadding(),
+            modifier = Modifier.systemBarsPadding(),
             backStack = backStack,
             onBack = { backStack.removeLastOrNull() },
             entryDecorators = listOf(
@@ -59,7 +59,10 @@ class MainActivity : AppCompatActivity() {
                     }
 
                     is Game -> NavEntry(key) {
-                        GameScreen()
+                        GameScreen(
+                            firstPlayerName = key.firstPlayerName,
+                            secondPlayerName = key.secondPlayerName
+                        )
                     }
 
                     else -> throw IllegalStateException()
