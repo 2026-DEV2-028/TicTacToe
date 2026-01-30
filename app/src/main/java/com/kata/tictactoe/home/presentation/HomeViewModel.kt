@@ -58,7 +58,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         val firstPlayerName = uiState.value.firstPlayerName
         val secondPlayerName = uiState.value.secondPlayerName
 
-        if (firstPlayerName.isEmpty()) {
+        if (firstPlayerName.isBlank()) {
             _uiState.update {
                 it.copy(
                     firstPlayerError = UiText.StringResource(R.string.error_empty_name)
@@ -66,7 +66,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
             }
         }
 
-        if (secondPlayerName.isEmpty()) {
+        if (secondPlayerName.isBlank()) {
             _uiState.update {
                 it.copy(
                     secondPlayerError = UiText.StringResource(R.string.error_empty_name)

@@ -26,14 +26,19 @@ class GameViewModel @AssistedInject constructor(
     @Assisted("secondPlayerName") private val secondPlayerName: String
 ) : ViewModel() {
 
-    private val players: List<Player> = listOf(
-        Player(firstPlayerName, Mark.X),
-        Player(secondPlayerName, Mark.O)
-    )
+    private val players: List<Player>
+
+    init {
+        val playersName = listOf(firstPlayerName, secondPlayerName).shuffled()
+        players = listOf(
+            Player(playersName.first(), Mark.X),
+            Player(playersName.last(), Mark.O)
+        )
+    }
 
     private val _uiState = MutableStateFlow(
         UiState(
-            currentPlayer = players.random(),
+            currentPlayer = players.first(),
             boardState = BoardState.newEmptyBoard()
         )
     )
@@ -47,7 +52,7 @@ class GameViewModel @AssistedInject constructor(
             UserAction.OnReplayButtonClick -> {
                 _uiState.update {
                     it.copy(
-                        currentPlayer = players.random(),
+                        currentPlayer = players.first(),
                         boardState = BoardState.newEmptyBoard(),
                         endOfGameMessage = null
                     )
@@ -87,12 +92,13 @@ class GameViewModel @AssistedInject constructor(
 
         when (checkWinnerResult) {
             is CheckWinnerResult.Winner -> {
-                val winingPlayer = players.first { it.assignedMark == checkWinnerResult.winnerMark }
+                val winningPlayer =
+                    players.first { it.assignedMark == checkWinnerResult.winnerMark }
                 _uiState.update {
                     it.copy(
                         endOfGameMessage = UiText.StringResource(
                             id = R.string.game_win_message,
-                            args = arrayOf(winingPlayer.name)
+                            args = arrayOf(winningPlayer.name)
                         )
                     )
                 }
