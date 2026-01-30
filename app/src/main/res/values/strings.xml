@@ -8,6 +8,9 @@
     <string name="home_start_game_button">Start !</string>
 
     <string name="game_your_turn">%s, it\'s your turn to play</string>
+    <string name="game_win_message">%s, you win !</string>
+    <string name="game_draw_message">It\'s a draw !</string>
+    <string name="game_replay_button">Replay</string>
 
     <string name="error_empty_name">You must provide a name</string>
 </resources>

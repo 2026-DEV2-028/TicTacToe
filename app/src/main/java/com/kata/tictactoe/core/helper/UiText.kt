@@ -17,7 +17,7 @@ sealed class UiText {
     fun asString(): String {
         return when (this) {
             is DynamicString -> value
-            is StringResource -> stringResource(id = id, args)
+            is StringResource -> stringResource(id = id, *args)
         }
     }
 
