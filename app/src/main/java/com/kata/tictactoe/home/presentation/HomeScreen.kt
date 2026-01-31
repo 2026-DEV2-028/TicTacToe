@@ -16,6 +16,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -98,7 +99,9 @@ fun HomeScreenContent(
                 supportingText = {
                     Text(text = uiState.firstPlayerError?.asString() ?: "")
                 },
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("first_player_text_field"),
             )
             Spacer(
                 modifier = Modifier.height(8.dp)
@@ -116,7 +119,9 @@ fun HomeScreenContent(
                 supportingText = {
                     Text(text = uiState.secondPlayerError?.asString() ?: "")
                 },
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .testTag("second_player_text_field"),
             )
             Spacer(
                 modifier = Modifier.height(8.dp)
@@ -126,6 +131,7 @@ fun HomeScreenContent(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(50.dp)
+                    .testTag("start_game_button")
             ) {
                 Text(text = stringResource(R.string.home_start_game_button))
             }
