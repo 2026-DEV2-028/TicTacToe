@@ -46,8 +46,16 @@ fun GameBoard(
                         contentAlignment = Alignment.Center
                     ) {
                         when (cell) {
-                            Mark.X -> XMark(modifier = Modifier.padding(24.dp))
-                            Mark.O -> OMark(modifier = Modifier.padding(24.dp))
+                            Mark.X -> XMark(
+                                modifier = Modifier.padding(24.dp),
+                                withAnimation = true
+                            )
+
+                            Mark.O -> OMark(
+                                modifier = Modifier.padding(24.dp),
+                                withAnimation = true
+                            )
+
                             null -> {}
                         }
                     }

@@ -94,8 +94,8 @@ fun GameScreenContent(
 
                 Box(modifier = Modifier.size(80.dp)) {
                     when (uiState.currentPlayer.assignedMark) {
-                        Mark.X -> XMark()
-                        Mark.O -> OMark()
+                        Mark.X -> XMark(withAnimation = false)
+                        Mark.O -> OMark(withAnimation = false)
                     }
                 }
             }
