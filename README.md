@@ -14,7 +14,7 @@ The application implements a classic **TicTacToe game** with the following chara
 ### Board Size Configuration
 
 The board size can be changed easily by modifying the single constant `BOARD_SIZE` located in the
-`BoardState` class.
+`GameConstants` object.
 
 ## Application Screens
 

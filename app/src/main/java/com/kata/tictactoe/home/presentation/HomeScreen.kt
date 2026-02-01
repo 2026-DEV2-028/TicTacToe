@@ -32,7 +32,7 @@ fun HomeScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    LaunchedEffect(key1 = null) {
+    LaunchedEffect(Unit) {
         viewModel.event.collectLatest {
             when (it) {
                 is HomeViewModel.Event.OpenGameScreen -> onStartGame(

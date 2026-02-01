@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -49,7 +50,8 @@ fun XMark(
                 size.width * progress.value,
                 size.height * progress.value
             ),
-            strokeWidth = 20f
+            strokeWidth = 20f,
+            cap = StrokeCap.Round
         )
 
         drawLine(
@@ -59,7 +61,8 @@ fun XMark(
                 size.width * (1f - progress.value),
                 size.height * progress.value
             ),
-            strokeWidth = 20f
+            strokeWidth = 20f,
+            cap = StrokeCap.Round
         )
     }
 }

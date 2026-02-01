@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     @Composable
     fun App() {
         val backStack = remember { mutableStateListOf<NavigationScreen>(NavigationScreen.Home) }
+
         NavDisplay(
             modifier = Modifier.systemBarsPadding(),
             backStack = backStack,
@@ -62,8 +63,6 @@ class MainActivity : AppCompatActivity() {
                             secondPlayerName = key.secondPlayerName
                         )
                     }
-
-                    else -> throw IllegalStateException("Unknown navigation key: $key")
                 }
             })
     }

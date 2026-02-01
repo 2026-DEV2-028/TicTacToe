@@ -1,14 +1,15 @@
 package com.kata.tictactoe.game.domain.model
 
+import com.kata.tictactoe.game.domain.GameConstants.BOARD_SIZE
+
 data class BoardState(
     val cells: List<List<Mark?>>
 ) {
     companion object {
-        const val BOARD_SIZE = 3
 
-        fun newEmptyBoard(): BoardState {
+        fun newEmptyBoard(boardSize: Int = BOARD_SIZE): BoardState {
             return BoardState(
-                cells = List(BOARD_SIZE) { List(BOARD_SIZE) { null } }
+                cells = List(boardSize) { List(boardSize) { null } }
             )
         }
     }
