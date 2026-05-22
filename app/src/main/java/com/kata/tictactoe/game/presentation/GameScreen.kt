@@ -30,6 +30,7 @@ import com.kata.tictactoe.game.domain.model.Player
 import com.kata.tictactoe.game.presentation.composable.GameBoard
 import com.kata.tictactoe.game.presentation.composable.OMark
 import com.kata.tictactoe.game.presentation.composable.XMark
+import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun GameScreen(
@@ -117,10 +118,10 @@ private fun GameScreenContentPreview() {
         uiState = GameViewModel.UiState(
             currentPlayer = Player("2026-DEV2-028", Mark.X),
             boardState = BoardState(
-                cells = listOf(
-                    listOf(Mark.X, null, Mark.O),
-                    listOf(null, Mark.X, null),
-                    listOf(null, null, Mark.X)
+                cells = persistentListOf(
+                    persistentListOf(Mark.X, null, Mark.O),
+                    persistentListOf(null, Mark.X, null),
+                    persistentListOf(null, null, Mark.X)
                 )
             )
         )
@@ -134,10 +135,10 @@ private fun GameScreenContentWinnerPreview() {
         uiState = GameViewModel.UiState(
             currentPlayer = Player("2026-DEV2-028", Mark.X),
             boardState = BoardState(
-                cells = listOf(
-                    listOf(Mark.X, Mark.X, Mark.X),
-                    listOf(null, Mark.O, null),
-                    listOf(null, null, Mark.O)
+                cells = persistentListOf(
+                    persistentListOf(Mark.X, Mark.X, Mark.X),
+                    persistentListOf(null, Mark.O, null),
+                    persistentListOf(null, null, Mark.O)
                 )
             ),
             endOfGameMessage = UiText.StringResource(

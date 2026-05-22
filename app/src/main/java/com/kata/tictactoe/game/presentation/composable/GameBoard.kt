@@ -16,6 +16,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kata.tictactoe.game.domain.model.BoardState
 import com.kata.tictactoe.game.domain.model.Mark
+import kotlinx.collections.immutable.persistentListOf
 
 @Composable
 fun GameBoard(
@@ -70,10 +71,10 @@ fun GameBoard(
 private fun GameBoardPreview() {
     GameBoard(
         boardState = BoardState(
-            cells = listOf(
-                listOf(Mark.X, null, Mark.O),
-                listOf(Mark.O, Mark.X, null),
-                listOf(null, null, Mark.X)
+            cells = persistentListOf(
+                persistentListOf(Mark.X, null, Mark.O),
+                persistentListOf(Mark.O, Mark.X, null),
+                persistentListOf(null, null, Mark.X)
             )
         ),
         onCellClick = { _, _ -> }

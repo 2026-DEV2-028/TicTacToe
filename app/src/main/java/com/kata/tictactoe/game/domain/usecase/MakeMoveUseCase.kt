@@ -2,6 +2,7 @@ package com.kata.tictactoe.game.domain.usecase
 
 import com.kata.tictactoe.game.domain.model.BoardState
 import com.kata.tictactoe.game.domain.model.Mark
+import kotlinx.collections.immutable.toPersistentList
 import javax.inject.Inject
 
 class MakeMoveUseCase @Inject constructor() {
@@ -42,8 +43,9 @@ class MakeMoveUseCase @Inject constructor() {
             cells = boardState.cells.mapIndexed { rowIndex, rowList ->
                 if (rowIndex == selectedRow) {
                     rowList.mapIndexed { col, cell -> if (col == selectedCol) playerMark else cell }
-                } else rowList
-            }
+                        .toPersistentList()
+                } else rowList.toPersistentList()
+            }.toPersistentList()
         )
 
         return MoveResult.Success(
